@@ -5,6 +5,7 @@ import './db';
 import cors from 'cors';
 import usersRouter from './api/users';
 import authenticate from './authenticate';
+import moviesRouter from './api/movies';   
 
 
 
@@ -37,11 +38,14 @@ app.use(express.static('public'));
 app.use(express.json());
 
 
+console.log("there")
 
 
-
+//movies router
+app.use('/api/movies', moviesRouter); 
 //Users router
 app.use('/api/users', usersRouter);
+
 
 
 
