@@ -1,13 +1,32 @@
 import fetch from 'node-fetch';
 
+
+//home page - discover endpoint
 export const getMovies = async () => {
     const response = await fetch(
         `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=1`
     );
 
     if (!response.ok) {
-        throw new Error(response.json().message);
+          throw new Error(response.json().message);
     }
 
     return await response.json();
 };
+
+
+
+//now playing endpoint
+export const getNowPlaying = async () => {
+    const response = await fetch(
+        `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1`
+    );
+
+    if (!response.ok) {
+          throw new Error(response.json().message);
+    
+    }
+
+    return await response.json();
+};
+
