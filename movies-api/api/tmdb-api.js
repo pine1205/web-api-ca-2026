@@ -30,3 +30,17 @@ export const getNowPlaying = async () => {
     return await response.json();
 };
 
+
+//upcoming endpoint
+export const getUpcoming = async () => {
+    const response = await fetch(
+        `https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1`
+    );
+
+    if (!response.ok) {
+          throw new Error(response.json().message);
+    
+    }
+
+    return await response.json();
+};
