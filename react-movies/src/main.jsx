@@ -15,7 +15,6 @@ import Popular from './pages/popular';
 import TopRated from './pages/topRated';
 import Upcoming from './pages/upcoming';
 import Similar from './pages/similar';
-import './myCSS.css';
 import CastPage from './pages/castPage';
 import Recommendations from './pages/recommendations';
 
@@ -23,7 +22,9 @@ import LoginPage from "./pages/loginPage";
 import SignupPage from "./pages/signupPage";
 import StartPage from "./pages/startPage";
 import ProfilePage from "./pages/profilePage";
-
+import AuthContextProvider from "./contexts/authContext";
+import ProtectedRoutes from "./protectedRoutes";
+import './myCSS.css';
 
 
 
@@ -43,8 +44,17 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <SiteHeader />
+          <AuthContextProvider>
         <MoviesContextProvider>
           <Routes>
+
+            <Route path="/" element={< StartPage />} />
+            <Route path="/login" element={< LoginPage />} />
+            <Route path="/signup" element={< SignupPage />} />
+            <Route path="/profile" element={< ProfilePage />} />
+                   <Route element={<ProtectedRoutes />}>
+
+ <Route path="/movies/discover" element={< HomePage />} />
  <Route path="/movies/nowPlaying/" element={ <NowPlaying /> } />
   <Route path="/movies/popular/" element={ <Popular /> } />
    <Route path="/movies/topRated/" element={ <TopRated /> } />
@@ -58,15 +68,14 @@ const App = () => {
             <Route path="/movies/favorites" element={<FavoriteMoviesPage />} />
             <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
             <Route path="/movies/:id" element={<MoviePage />} />
+</Route>
 
-            <Route path="/" element={< StartPage />} />
-            <Route path="/login" element={< LoginPage />} />
-            <Route path="/signup" element={< SignupPage />} />
-            <Route path="/movies/discover" element={< HomePage />} />
-             <Route path="/profile" element={< ProfilePage />} />
+           
+            
             <Route path="*" element={ <Navigate to="/" /> } />
           </Routes>
         </MoviesContextProvider>
+        </AuthContextProvider>
       </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
@@ -77,3 +86,5 @@ const App = () => {
 
 const rootElement = createRoot( document.getElementById("root") )
 rootElement.render(<App />);
+
+export default App;
