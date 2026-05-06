@@ -5,7 +5,7 @@ const StartPage = () => {
     return(
         <>
             <p>
-                Welcome to Movies Website! View your <Link to="/discover">Movies</Link> or your <Link to="/profile">Profile</Link>.
+                Welcome to Movies Website! View your <Link to="/movies/discover">Movies</Link> or your <Link to="/profile">Profile</Link>.
             </p>
             <p>
                 <Link to="/login">Login</Link> or <Link to="/signup">Signup</Link> to view the Movies!

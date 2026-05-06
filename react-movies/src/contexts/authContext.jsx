@@ -5,8 +5,7 @@ export const AuthContext = createContext(null); //eslint-disable-line
 
 const AuthContextProvider = (props) => {
   const existingToken = localStorage.getItem("token");
-  const [isAuthenticated, setIsAuthenticated] = useState(!!existingToken);
-  //if token exicsts - user is logged in, if not logged in - then redirect
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [authToken, setAuthToken] = useState(existingToken); //eslint-disable-line
   const [userName, setUserName] = useState("");
 
@@ -31,9 +30,8 @@ const AuthContextProvider = (props) => {
   };
 
   const signout = () => {
-     localStorage.removeItem("token");
-  setIsAuthenticated(false);
-    // setTimeout(() => setIsAuthenticated(false), 100);
+     
+     setTimeout(() => setIsAuthenticated(false), 100);
   }
 
   return (
