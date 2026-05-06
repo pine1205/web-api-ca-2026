@@ -42,7 +42,7 @@ console.log("there")
 
 
 //movies router
-app.use('/api/movies', moviesRouter); 
+app.use('/api/movies',authenticate,  moviesRouter); 
 //Users router
 app.use('/api/users', usersRouter);
 
