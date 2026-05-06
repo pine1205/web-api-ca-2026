@@ -1,5 +1,5 @@
 import React from "react";
-import { gettopRated } from "../api/tmdb-api";
+import { getTopRated } from "../api/tmdb-api";
 import PageTemplate from '../components/templateMovieListPage';
 import { useQuery } from '@tanstack/react-query';
 import Spinner from '../components/spinner';
@@ -13,7 +13,7 @@ const topRated = (props) => {
 
   const { data, error, isPending, isError  } = useQuery({
     queryKey: ['topRated'],
-    queryFn: gettopRated,
+    queryFn: getTopRated,
   })
   
   if (isPending) {

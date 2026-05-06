@@ -52,7 +52,7 @@ export const getPopular = () => {
 };
 
 //top Rated
-export const gettopRated = () => {
+export const getTopRated = () => {
   return fetch(
     `http://localhost:8080/api/movies/top_rated`
   ).then((response) => {
