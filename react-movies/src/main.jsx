@@ -19,6 +19,11 @@ import './myCSS.css';
 import CastPage from './pages/castPage';
 import Recommendations from './pages/recommendations';
 
+import LoginPage from "./pages/loginPage";
+import SignupPage from "./pages/signupPage";
+import StartPage from "./pages/startPage";
+import ProfilePage from "./pages/profilePage";
+
 
 
 
@@ -53,7 +58,12 @@ const App = () => {
             <Route path="/movies/favorites" element={<FavoriteMoviesPage />} />
             <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
             <Route path="/movies/:id" element={<MoviePage />} />
-            <Route path="/" element={<HomePage />} />
+
+            <Route path="/" element={< StartPage />} />
+            <Route path="/login" element={< LoginPage />} />
+            <Route path="/signup" element={< SignupPage />} />
+            <Route path="/movies/discover" element={< HomePage />} />
+             <Route path="/profile" element={< ProfilePage />} />
             <Route path="*" element={ <Navigate to="/" /> } />
           </Routes>
         </MoviesContextProvider>
