@@ -24,11 +24,14 @@ const SiteHeader = () => {
   const navigate = useNavigate();
 
   const menuOptions = [
+    { label: "Login", path: "/login" },
+    { label: "SignUp", path: "/signup" },
+    { label: "Logout", path: "/" },
     { label: "Home", path: "/" },
     { label: "Favorites", path: "/movies/favorites" },
-    { label: "Now Playing", path: "/movies/nowPlaying" },
+    { label: "Now Playing", path: "/movies/now_playing" },
     { label: "Popular", path: "/movies/popular" },
-    { label: "Top Rated", path: "/movies/topRated" },
+    { label: "Top Rated", path: "/movies/top_rated" },
     { label: "Upcoming", path: "/movies/upcoming" },
      { label: "Similar", path: "/similar/:id" }
   ];
