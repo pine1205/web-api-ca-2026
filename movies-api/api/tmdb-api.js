@@ -19,7 +19,7 @@ export const getMovies = async () => {
 //now playing endpoint
 export const getNowPlaying = async () => {
     const response = await fetch(
-        `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1`
+       `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1`
     );
 
     if (!response.ok) {
@@ -35,6 +35,21 @@ export const getNowPlaying = async () => {
 export const getUpcoming = async () => {
     const response = await fetch(
         `https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1`
+    );
+
+    if (!response.ok) {
+          throw new Error(response.json().message);
+    
+    }
+
+    return await response.json();
+};
+
+
+//popular endpoint
+export const getPopular = async () => {
+    const response = await fetch(
+        'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1'
     );
 
     if (!response.ok) {

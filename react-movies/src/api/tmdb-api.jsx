@@ -17,7 +17,7 @@ export const getMovies = () => {
 
 
 //now playing
-export const getnowPlaying = () => {
+export const getNowPlaying = () => {
   return fetch(
      `http://localhost:8080/api/movies/now_playing`
   ).then((response) => {
