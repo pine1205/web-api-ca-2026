@@ -7,14 +7,20 @@ import Button from "@mui/material/Button";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
-import { useNavigate } from "react-router";
+import { useNavigate, Link  } from "react-router";
 import { styled } from '@mui/material/styles';
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { AuthContext } from "../../contexts/authContext";
+import { useContext } from "react"; 
 
 const Offset = styled('div')(({ theme }) => theme.mixins.toolbar);
 
 const SiteHeader = () => {
+ 
+
+const context = useContext(AuthContext);
+
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
@@ -27,7 +33,7 @@ const SiteHeader = () => {
     { label: "Login", path: "/login" },
     { label: "SignUp", path: "/signup" },
     { label: "Logout", path: "/" },
-    { label: "Home", path: "/" },
+    { label: "Home", path: "/movies/discover" },
     { label: "Favorites", path: "/movies/favorites" },
     { label: "Now Playing", path: "/movies/now_playing" },
     { label: "Popular", path: "/movies/popular" },
@@ -46,6 +52,10 @@ const SiteHeader = () => {
   };
 
   return (
+
+
+
+
     <>
       <AppBar position="fixed" color="secondary">
         <Toolbar>

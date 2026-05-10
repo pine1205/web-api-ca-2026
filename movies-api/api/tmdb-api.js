@@ -19,7 +19,7 @@ export const getMovies = async () => {
 //now playing endpoint
 export const getNowPlaying = async () => {
     const response = await fetch(
-       `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1`
+       `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.TMDB_KEY}&language=en-US&page=1`
     );
 
     if (!response.ok) {
@@ -34,7 +34,7 @@ export const getNowPlaying = async () => {
 //upcoming endpoint
 export const getUpcoming = async () => {
     const response = await fetch(
-        `https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1`
+        `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.TMDB_KEY}&language=en-US&page=1`
     );
 
     if (!response.ok) {
@@ -49,7 +49,7 @@ export const getUpcoming = async () => {
 //popular endpoint
 export const getPopular = async () => {
     const response = await fetch(
-        'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1'
+        'https://api.themoviedb.org/3/movie/popular?api_key=${process.env.TMDB_KEY}&language=en-US&page=1'
     );
 
     if (!response.ok) {
@@ -63,7 +63,7 @@ export const getPopular = async () => {
 //popular endpoint
 export const getTopRated = async () => {
     const response = await fetch(
-       'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1' 
+       'https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.TMDB_KEY}&language=en-US&page=1' 
     );
 
     if (!response.ok) {
