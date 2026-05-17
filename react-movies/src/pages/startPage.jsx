@@ -1,16 +1,20 @@
+import { useContext } from "react";
+import { AuthContext } from '../contexts/authContext';
 import { Link } from "react-router";
 
 const StartPage = () => {
+        const context = useContext(AuthContext);
   
-    return(
-        <>
+    return context.isAuthenticated ? (
+       
             <p>
-                Welcome to Movies Website! View your <Link to="/movies/discover">Movies</Link> or your <Link to="/profile">Profile</Link>.
+                Welcome {context.userName}! View your <Link to="/movies/discover">Movies</Link> or your <Link to="/profile">Profile</Link>.
             </p>
+      ) : (
             <p>
                 <Link to="/login">Login</Link> or <Link to="/signup">Signup</Link> to view the Movies!
             </p>
-        </>
+        
     );
   };
 
