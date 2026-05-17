@@ -1,90 +1,129 @@
 //STATIC ENDPOINTS
-export const getMovies = () => {
-  return fetch(
-    `http://localhost:8080/api/movies/discover`
-  ).then((response) => {
-    if (!response.ok) {
-      return response.json().then((error) => {
-        throw new Error(error.status_message || "Something went wrong");
-      });
-    }
-    return response.json();
-  })
-  .catch((error) => {
-      throw error
-  });
-};
 
+export const getMovies = async () => {
+    const response = await fetch(
+        `http://localhost:8080/api/movies/discover`, {
+            headers: {
+                'Authorization': window.localStorage.getItem('token')
+            }
+        }
+    )
+    return response.json();
+};
 
 //now playing
-export const getNowPlaying = () => {
-  return fetch(
-     `http://localhost:8080/api/movies/now_playing`
-  ).then((response) => {
-    if (!response.ok) {
-      return response.json().then((error) => {
-        throw new Error(error.status_message || "Something went wrong");
-      });
-    }
+// export const getNowPlaying = () => {
+//   return fetch(
+//      `http://localhost:8080/api/movies/now_playing`
+//   ).then((response) => {
+//     if (!response.ok) {
+//       return response.json().then((error) => {
+//         throw new Error(error.status_message || "Something went wrong");
+//       });
+//     }
+//     return response.json();
+//   })
+//   .catch((error) => {
+//       throw error
+//   });
+// };
+
+export const getNowPlaying = async () => {
+    const response = await fetch(
+        `http://localhost:8080/api/movies/now_playing`, {
+            headers: {
+                'Authorization': window.localStorage.getItem('token')
+            }
+        }
+    )
+    
     return response.json();
-  })
-  .catch((error) => {
-      throw error
-  });
 };
 
-
 //popular
-export const getPopular = () => {
-  return fetch(
-     `http://localhost:8080/api/movies/popular`
-  ).then((response) => {
-    if (!response.ok) {
-      return response.json().then((error) => {
-        throw new Error(error.status_message || "Something went wrong");
-      });
-    }
+// export const getPopular = () => {
+//   return fetch(
+//      `http://localhost:8080/api/movies/popular`
+//   ).then((response) => {
+//     if (!response.ok) {
+//       return response.json().then((error) => {
+//         throw new Error(error.status_message || "Something went wrong");
+//       });
+//     }
+//     return response.json();
+//   })
+//   .catch((error) => {
+//       throw error
+//   });
+// };
+
+export const getPopular = async () => {
+    const response = await fetch(
+        `http://localhost:8080/api/movies/popular`, {
+            headers: {
+                'Authorization': window.localStorage.getItem('token')
+            }
+        }
+    )
     return response.json();
-  })
-  .catch((error) => {
-      throw error
-  });
 };
 
 //top Rated
-export const getTopRated = () => {
-  return fetch(
-    `http://localhost:8080/api/movies/top_rated`
-  ).then((response) => {
-    if (!response.ok) {
-      return response.json().then((error) => {
-        throw new Error(error.status_message || "Something went wrong");
-      });
-    }
+// export const getTopRated = () => {
+//   return fetch(
+//     `http://localhost:8080/api/movies/top_rated`
+//   ).then((response) => {
+//     if (!response.ok) {
+//       return response.json().then((error) => {
+//         throw new Error(error.status_message || "Something went wrong");
+//       });
+//     }
+//     return response.json();
+//   })
+//   .catch((error) => {
+//       throw error
+//   });
+// };
+
+export const getTopRated = async () => {
+    const response = await fetch(
+        `http://localhost:8080/api/movies/top_rated`, {
+            headers: {
+                'Authorization': window.localStorage.getItem('token')
+            }
+        }
+    )
     return response.json();
-  })
-  .catch((error) => {
-      throw error
-  });
 };
 
 //upcoming
-export const getupcoming = () => {
-  return fetch(
-    `http://localhost:8080/api/movies/upcoming`
-  ).then((response) => {
-    if (!response.ok) {
-      return response.json().then((error) => {
-        throw new Error(error.status_message || "Something went wrong");
-      });
-    }
-    return response.json();
-  })
-  .catch((error) => {
-      throw error
-  });
-};
+// export const getupcoming = () => {
+//   return fetch(
+//     `http://localhost:8080/api/movies/upcoming`
+//   ).then((response) => {
+//     if (!response.ok) {
+//       return response.json().then((error) => {
+//         throw new Error(error.status_message || "Something went wrong");
+//       });
+//     }
+//     return response.json();
+//   })
+//   .catch((error) => {
+//       throw error
+//   });
+// };
 
+
+export const getupcoming = async () => {
+    const response = await fetch(
+        `http://localhost:8080/api/movies/upcoming`, {
+            headers: {
+                'Authorization': window.localStorage.getItem('token')
+            }
+        }
+    )
+    return response.json();
+};
 
 
 
