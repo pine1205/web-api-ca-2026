@@ -1,11 +1,13 @@
 import dotenv from 'dotenv';
 import express from 'express';
+import mongoose from 'mongoose';
 
 import './db';
 import cors from 'cors';
 import usersRouter from './api/users';
 import authenticate from './authenticate';
-import moviesRouter from './api/movies';   
+import moviesRouter from './api/movies'; 
+import favouritesRouter from './api/favourites';
 
 
 
@@ -45,6 +47,8 @@ console.log("there")
 app.use('/api/movies',authenticate,  moviesRouter); 
 //Users router
 app.use('/api/users', usersRouter);
+//Favourites router
+app.use('/api/favourites', favouritesRouter);
 
 
 

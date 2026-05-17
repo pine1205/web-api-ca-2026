@@ -56,6 +56,7 @@ let result = pattern.test(req.body.password);
         if (!result) {
             return res.status(400).json({ success: false, msg: 'Password must be 8 characters, including one uppercase letter, one lowercase letter, one number, and one special character.' });
         }
+
     await User.create(req.body);
     res.status(201).json({ success: true, msg: 'User successfully created.' });
 }
