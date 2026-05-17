@@ -7,118 +7,60 @@ import Button from "@mui/material/Button";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
-import { useNavigate, Link  } from "react-router";
 import { styled } from '@mui/material/styles';
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { AuthContext } from "../../contexts/authContext";
 import { useContext } from "react"; 
+import { useNavigate, Link  } from "react-router";
+import { AuthContext } from "../../contexts/authContext";
 
-const Offset = styled('div')(({ theme }) => theme.mixins.toolbar);
 
-const SiteHeader = () => {
- 
-
-const context = useContext(AuthContext);
-
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
-
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-  
+const Header = () => {
+  const context = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const menuOptions = [
-    { label: "Login", path: "/login" },
-    { label: "SignUp", path: "/signup" },
-    { label: "Logout", path: "/" },
-    { label: "Home", path: "/movies/discover" },
-    { label: "Favorites", path: "/movies/favorites" },
-    { label: "Now Playing", path: "/movies/now_playing" },
-    { label: "Popular", path: "/movies/popular" },
-    { label: "Top Rated", path: "/movies/top_rated" },
-    { label: "Upcoming", path: "/movies/upcoming" },
-     { label: "Similar", path: "/similar/:id" }
-  ];
-
-  const handleMenuSelect = (pageURL) => {
-    setAnchorEl(null);
-    navigate(pageURL);
-  };
-
-  const handleMenu = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
   return (
-
-
-
-
-    <>
-      <AppBar position="fixed" color="secondary">
-        <Toolbar>
-          <Typography variant="h4" sx={{ flexGrow: 1 }}>
-            TMDB Client
-          </Typography>
-          <Typography variant="h6" sx={{ flexGrow: 1 }}>
-            All you ever wanted to know about Movies!
-          </Typography>
-            {isMobile ? (
-              <>
-                <IconButton
-                  aria-label="menu"
-                  aria-controls="menu-appbar"
-                  aria-haspopup="true"
-                  onClick={handleMenu}
-                  color="inherit"
-                >
-                  <MenuIcon />
-                </IconButton>
-                <Menu
-                  id="menu-appbar"
-                  anchorEl={anchorEl}
-                  anchorOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-                  }}
-                  open={open}
-                  onClose={() => setAnchorEl(null)}
-                >
-                  {menuOptions.map((opt) => (
-                    <MenuItem
-                      key={opt.label}
-                      onClick={() => handleMenuSelect(opt.path)}
-                    >
-                      {opt.label}
-                    </MenuItem>
-                  ))}
-                </Menu>
-              </>
-            ) : (
-              <>
-                {menuOptions.map((opt) => (
-                  <Button
-                    key={opt.label}
-                    color="inherit"
-                    onClick={() => handleMenuSelect(opt.path)}
-                  >
-                    {opt.label}
-                  </Button>
-                ))}
-              </>
-            )}
-        </Toolbar>
-      </AppBar>
-      <Offset />
-    </>
+    <header className="site-header">
+    <div className="left-section">
+      <Link to="/" className="home-link">Home</Link>
+      <nav className="nav-links">
+        {context.isAuthenticated ? (
+          <>
+            <Link to="/movies/discover">Movies</Link>
+            <Link to="/profile">Profile</Link>
+             <Link to="/login">Login</Link>
+              <Link to="/signup">Signup</Link>
+               <Link to="/movies/favorites">Favorites</Link>
+                <Link to="/movies/now_playing">Now Playing</Link>
+                 <Link to="/movies/popular">Popular</Link>
+                  <Link to="/Movies/top_rated">Top Rated</Link>
+                   <Link to="/movies/upcoming">Upcoming</Link>
+                    <Link to="/movies/similar">Similar</Link>
+          </>
+        ) : (
+          <>
+            <Link to="/login">Login</Link>
+            <Link to="/signup">Signup</Link>
+          </>
+        )}
+      </nav>
+      </div>
+      <div>
+        {context.isAuthenticated ? (
+          <>
+            <span>Welcome {context.userName}! </span> 
+            <button onClick={() => context.signout()}>Sign out</button>
+          </>
+        ) : (
+          <>
+            <span>You are not logged in </span> 
+            <button onClick={() => navigate("/login")}>Login</button>
+          </>
+        )}
+      </div>
+    </header>
   );
 };
 
-export default SiteHeader;
+export default Header;
+

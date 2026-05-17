@@ -5,7 +5,7 @@ import HomePage from "./pages/homePage";
 import MoviePage from "./pages/movieDetailsPage";
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import SiteHeader from "./components/siteHeader";
+//import SiteHeader from "./components/siteHeader";
 import FavoriteMoviesPage from "./pages/favoriteMoviesPage";
 import MovieReviewPage from "./pages/movieReviewPage";
 import MoviesContextProvider from "./contexts/moviesContext";
@@ -25,6 +25,7 @@ import ProfilePage from "./pages/profilePage";
 import AuthContextProvider from "./contexts/authContext";
 import ProtectedRoutes from "./protectedRoutes";
 import './myCSS.css';
+import Header from "./components/siteHeader";
 
 
 
@@ -43,9 +44,11 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
-        <SiteHeader />
+      
           <AuthContextProvider>
+             
         <MoviesContextProvider>
+          <Header />
           <Routes>
 
             <Route path="/" element={< StartPage />} />
