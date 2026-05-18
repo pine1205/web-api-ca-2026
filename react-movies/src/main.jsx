@@ -58,9 +58,9 @@ const App = () => {
                    <Route element={<ProtectedRoutes />}>
 
  <Route path="/movies/discover" element={< HomePage />} />
- <Route path="/movies/nowPlaying/" element={ <NowPlaying /> } />
+ <Route path="/movies/now_playing/" element={ <NowPlaying /> } />
   <Route path="/movies/popular/" element={ <Popular /> } />
-   <Route path="/movies/topRated/" element={ <TopRated /> } />
+   <Route path="/movies/top_rated/" element={ <TopRated /> } />
    <Route path="/movies/upcoming/" element={ <Upcoming /> } />
 
 
