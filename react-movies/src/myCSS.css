@@ -2,9 +2,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #4f4f4f;
-  padding: 0rem 2rem;
-  color: white;
+  background: linear-gradient(135deg, #d900e1, #ffbf00);
+  padding: 2rem 2rem;
+  color:#e1007c;
+  font-size: 1.3rem;
 }
 
 .left-section {
@@ -22,7 +23,7 @@
 
 .nav-links {
   display: flex;
-  gap: 1.5rem;
+  gap: 1.7rem;
 }
 
 .nav-links a {

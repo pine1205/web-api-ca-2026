@@ -78,7 +78,7 @@ export const getTopRated = async () => {
 //similar endpoint
 export const getSimilarMovies = async () => {
     const response = await fetch(
-       `https://api.themoviedb.org/3/movie/${id}/similar?language=en-US&page=1` 
+       `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${process.env.TMDB_KEY}&language=en-US&page=1` 
     );
 
     if (!response.ok) {
