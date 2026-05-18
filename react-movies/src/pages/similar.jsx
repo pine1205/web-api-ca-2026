@@ -1,8 +1,7 @@
 import React from "react";
-import { getsimilarMovies } from "../api/tmdb-api";
+import { getSimilarMovies } from "../api/tmdb-api";
 import { useLocation } from "react-router";
 import PageTemplate from "../components/templateMoviePage";
-//import MovieSimilar from "../components/movieSimilar";
 import { useParams } from 'react-router';
 import { useQuery } from "@tanstack/react-query";
 import Spinner from "../components/spinner";

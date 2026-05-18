@@ -174,24 +174,43 @@ export const getMovie = (args) => {
 };
 
 //similarMovies
-export const getsimilarMovies = (args) => {
-  console.log(args)
-  const [, idPart] = args.queryKey;
-  const { id } = idPart;
-  return fetch(
-    `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${import.meta.env.VITE_TMDB_KEY}`
-  ).then((response) => {
-    if (!response.ok) {
-      return response.json().then((error) => {
-        throw new Error(error.status_message || "Something went wrong");
-      });
-    }
-    return response.json();
-  })
-  .catch((error) => {
-    throw error
- });
-};
+// export const getsimilarMovies = (args) => {
+//   console.log(args)
+//   const [, idPart] = args.queryKey;
+//   const { id } = idPart;
+//   return fetch(
+//     `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${import.meta.env.VITE_TMDB_KEY}`
+//   ).then((response) => {
+//     if (!response.ok) {
+//       return response.json().then((error) => {
+//         throw new Error(error.status_message || "Something went wrong");
+//       });
+//     }
+//     return response.json();
+//   })
+//   .catch((error) => {
+//     throw error
+//  });
+// };
+
+export const getSimilarMovies = ({ queryKey }) => {
+    const [, idPart] = queryKey;
+    const { id } = idPart;
+    return fetch(
+      `http://localhost:8080/api/movies/${id}/similar`
+    ).then( (response) => {
+      if (!response.ok) {
+        return response.json().then((error) => {
+          throw new Error(error.status_message || "Something went wrong");
+        });
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      throw error
+   });
+  };
+
 
 
 //film cast
@@ -307,7 +326,7 @@ export const getsimilarMovies = (args) => {
 
 export const addFavourites = async(data) => {
     const res = await fetch(
-        `http://localhost:8080/favourites`,
+        `http://localhost:8080/api/favourites`,
         {
             method: 'POST',
             headers: {

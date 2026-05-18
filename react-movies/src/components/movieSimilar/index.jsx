@@ -11,7 +11,7 @@ import Typography from "@mui/material/Typography";
 import { useQuery } from "@tanstack/react-query";
 
 import Spinner from '../spinner';
-import { getsimilarMovies } from "../../api/tmdb-api";
+import { getSimilarMovies } from "../../api/tmdb-api";
 
 
 

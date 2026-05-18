@@ -75,7 +75,19 @@ export const getTopRated = async () => {
 };
 
 
+//similar endpoint
+export const getSimilarMovies = async () => {
+    const response = await fetch(
+       `https://api.themoviedb.org/3/movie/${id}/similar?language=en-US&page=1` 
+    );
 
+    if (!response.ok) {
+          throw new Error(response.json().message);
+    
+    }
+
+    return await response.json();
+};
 
 
 
