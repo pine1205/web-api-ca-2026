@@ -35,7 +35,7 @@ const Header = () => {
                  <Link to="/movies/popular">Popular</Link>
                   <Link to="/Movies/top_rated">Top Rated</Link>
                    <Link to="/movies/upcoming">Upcoming</Link>
-                    <Link to="/movies/similar">Similar</Link>
+                    <Link to="/movies/550/similar">Similar</Link>
           </>
         ) : (
           <>
